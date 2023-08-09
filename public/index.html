@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Naphadon Camera Shop</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/src/css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <div id="popup" class="popup">
+            <div class="popup-content">
+              <img src="assets/img/keyWord.jpg" alt="Popup Image" class="popup-image" />
+              <button id="closePopup" class="btn btn-primary close-popup text-uppercase">Close</button>
+            </div>
+          </div>          
+          <style>
+            .popup {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.7);
+              z-index: 9999;
+            }
+          
+            .popup-image {
+                max-width: 100%; /* ปรับค่า max-width ให้รูปภาพเล็กลง */
+                max-height: 70vh; /* ปรับค่า max-height ให้รูปภาพเล็กลง */
+                display: block;
+                margin: 0 auto;
+            }
+
+            .popup-content {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: #fff;
+              padding: 10px;
+              border-radius: 5px;
+              text-align: center; /* จัดให้เนื้อหาอยู่ตรงกลาง */
+            }
+          
+            .close-popup {
+                display: absolute;
+                margin-top: 10px;
+                text-align: center;
+                cursor: pointer;
+                padding: 1.25rem 2.5rem;
+                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                font-size: 1.125rem;
+                font-weight: 700;
+                    
+            }
+
+            .popup-slow-fade-out {
+    animation: slowFadeOut 0.5s forwards; /* ใช้ keyframes ชื่อ slowFadeOut */
+  }
+
+  @keyframes slowFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px); /* แก้ไขค่า transform ตามต้องการ */
+    }
+  }
+            
+          </style>
+<script>
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+
+//     closePopup.addEventListener('click', () => {
+//     popup.style.display = 'none';
+//   });
+  
+    // เปิด pop-up เมื่อหน้าเว็บโหลดเสร็จ
+    window.addEventListener('load', () => {
+      popup.style.display = 'block';
+    });
+  
+    // ปิด pop-up เมื่อคลิกที่ปุ่มปิดหรือกดปุ่ม Escape
+    const closePopupHandler = () => {
+      popup.style.display = 'none';
+    };
+
+    closePopup.addEventListener('click', () => {
+    popup.classList.add('popup-slow-fade-out'); // เพิ่ม class เพื่อให้ pop-up ปิดอย่างช้า
+  });
+  
+    // closePopup.addEventListener('click', closePopupHandler);
+  
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closePopupHandler();
+      }
+    });
+  </script>
+  
+                      
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/logo-navbar.png"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Promotion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Naphadon Cameras Shop</div>
+                <div class="masthead-heading text-uppercase">Frame Your Vision </p>Top Cameras Available</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#portfolio">Let's get it</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">พบกับบริการ Services สุดพิเศษกันได้เลย 🔥</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-truck fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">ส่งสินค้า (Shipping Services)</h4>
+                        <p class="text-muted">เว็บไซต์ของมีบริการจัดส่งสินค้าที่รวดเร็วและประหยัด</p>
+                        <p class="text-muted">ในการจัดส่งสินค้าถึงที่อยู่ลูกค้าที่ต้องการ</p>
+                        <p class="text-muted">มีระบบติดตามสถานะการส่งสินค้า</p>
+                        <p class="text-muted">ให้ลูกค้าตรวจสอบและทราบข้อมูลการจัดส่งใหม่ๆ</p>
+                        <p class="text-muted">อย่างครบถ้วนและเป็นระบบ</p>
+                        
+                        
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-headset fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">บริการลูกค้า (Customer Support)</h4>
+                        <p class="text-muted">เว็บไซต์มีทีมงานที่พร้อมให้คำแนะนำและช่วยเหลือลูกค้า</p>
+                        <p class="text-muted">ที่มีคำถามหรือปัญหาเกี่ยวกับสินค้าหรือการสั่งซื้อ</p>
+                        <p class="text-muted">สามารถติดต่อผ่านช่องทางต่างๆ</p>
+                        <p class="text-muted">เช่น โทรศัพท์หรือแชทออนไลน์ หรือคลิกที่ Contact</p>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-comments-dollar fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">บริการคืนสินค้า (Return Policy)</h4>
+                        <p class="text-muted">เว็บไซต์มีนโยบายการคืนสินค้าที่เป็นมาตรฐานให้กับลูกค้า</p>
+                        <p class="text-muted">โดยรับคืนสินค้าที่ไม่เป็นไปตามความต้องการหรือมีปัญหาต่างๆ</p>
+                        <p class="text-muted">และจัดให้มีกระบวนการคืนสินค้าที่ง่ายและรวดเร็ว</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Products</h2>
+                    <h3 class="section-subheading text-muted">มาแล้ว ‼️ สิ้นค้ารุ่นใหม่ พร้อมให้คุณครอบครอง 💸</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fa fa-eye fa-3x" aria-hidden="true"></i></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/ProductOf/Product1.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Sony Alpha a7R IV</div>
+                                <div class="portfolio-caption-subheading text-muted">2,999$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fa fa-eye fa-3x" aria-hidden="true"></i></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/ProductOf/Product2.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Canon EOS R5</div>
+                                <div class="portfolio-caption-subheading text-muted">3,499$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fa fa-eye fa-3x" aria-hidden="true"></i></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/ProductOf/Product3.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Nikon Z7 II</div>
+                                <div class="portfolio-caption-subheading text-muted">2,799$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fa fa-eye fa-3x" aria-hidden="true"></i></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/ProductOf/Product4.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Fujifilm X-T4</div>
+                                <div class="portfolio-caption-subheading text-muted">1,999$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- Portfolio item 5-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fa fa-eye fa-3x" aria-hidden="true"></i></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/ProductOf/Product5.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">PANASONIC LUMIX GH5</div>
+                                <div class="portfolio-caption-subheading text-muted">1,999$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Portfolio item 6-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fa fa-eye fa-3x" aria-hidden="true"></i></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/ProductOf/Product6.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Olympus OM-D E-M1 Mark III</div>
+                                <div class="portfolio-caption-subheading text-muted">1,499$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About Us</h2>
+                </br>
+                    
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/hamster.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2023-Present</h4>
+                                <h4 class="subheading">Naphadon Camera Shop</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted2">ร้านค้าออนไลน์ที่มุ่งเน้นให้บริการที่ดีที่สุดให้กับลูกค้า</p>
+                            <p class="text-muted2">ที่ต้องการหาสินค้าที่มีคุณภาพและราคาที่เหมาะสม</p>
+                            <p class="text-muted2">กับทุกความต้องการของคุณ</p>
+                            <p class="text-muted2">เราพร้อมที่ดูแลความพอใจของคุณทุกขั้นตอน</p>
+                            <p class="text-muted2">ขอบคุณที่ท่านให้ความสนใจและไว้วางใจเราครับ !</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/header-bg.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>22 July 2023</h4>
+                                <h4 class="subheading">Website is Born !</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted2">เมื่อวันที่ 20 กรกฎาคม 2023 Website นี้ได้ถือกำเนิดขึ้น</p>
+                            <p class="text-muted2">เพื่อให้ลูกค้าของเราทุกท่านมีความสะดวกรวดเร็วในการซื้อสินค้า</p>
+                            <p class="text-muted2">รวมถึงเป็นช่องทางที่สำคัญในการเลือกซื้อสินค้าของเรา</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Contact1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>ข้อมูลติดต่อ</h4>
+                                <h4 class="subheading">(Contact Information)</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted2">หากมีข้อสงสัยหรือมีคำถามสามารถติดต่อเราได้ที่</p>
+                                <p class="text-muted2">Contact โทรสาร 31-313 3131 หรือ 02-020 0202</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/npd1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>ทีมงานและบุคลากร</h4>
+                                <h4 class="subheading">(Team and Staff)</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted2">นายนภดล วัชรเวียงชัย นักศึกษาจากคณะวิศกรรมศาสต์</p>
+                                <p class="text-muted2">สาขาเทคโนโลยีดิจิทัลและสารสนเทศ</p>
+                                <p class="text-muted2">สถาบันการจัดการปัญญาภิวัฒน์ วิทยาเขต EEC</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Hope you
+                                <br />
+                                Enjoy
+                                <br />
+                                For Shoppoing
+                                
+                                
+                            </h4>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Promotion here !</h2>
+                    <h3 class="section-subheading text-muted">📢โปรโมชั่นสุดคุ้มอยู่ที่นี่แล้ว !</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="portfolio-hover-content" src="assets/img/team/Promo1.png" alt="..." />
+                            <h4>โปรกล้องถูกบอกต่อ</h4>
+                        </br>
+                            <p class="text-muted">หากเป็นนักศึกษารับส่วนลดทันที</p>
+                            <p class="text-muted">เมื่อซื้อกล้อง Olympus OM-D E-M1 Mark III</p>
+                            <p class="text-muted">เพียงโชว์บัตรนักศึกษาก็รับส่วนลดไปเลย 10%</p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="portfolio-hover-content" src="assets/img/team/Promo2.png" alt="..." />
+                            <h4>โปรลูกค้าใหม่</h4>
+                        </br>
+                            <p class="text-muted">มาแล้ววว !! สำหรับลูกค้าใหม่เพียงซื้อสินค้าใดก็ได้</p>
+                            <p class="text-muted">รับส่วนลดทันที 500 บาท !!!</p>
+                            <p class="team-member">**สั่งซื้อผ่านเว็บไซต์เท่านั้น</p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="portfolio-hover-content" src="assets/img/team/Promo3.jpeg" alt="..." />
+                            <h4>โปรของแถมสุดคุ้ม</h4>
+                        </br>
+                            <p class="text-muted">เมื่อซื้อครบ 2,000 $ รับไปเลย ฟรี!!</p>
+                            <p class="text-muted">ขาตั้งกล้อง Benro Slim Video Kit - Aluminum สุดพรีมี่ยม</p>
+                            <p class="text-muted">ในราคา 3,690 บาท</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">ฉลองเปิดเว็ปไวต์อย่างเป็นทางการ รับโปรโมชั่นสุดพิเศษกันเลย 🔥🔥</p></div>
+                </div>
+            </div>
+        </section>
+     
+        
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact</h2>
+                </div>
+            </br>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Submission successfully ✅</div>
+                             🙇‍♀️ Please wait for a reply 🙇‍♂️
+                            <br />
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">&copy; 6452101064 Naphadon Watcharaweingchai</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        
+                        <a class="link-dark text-decoration-none" href="#!">Spacial thank for Startbootstrap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Sony Alpha a7R IV</h2>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/ProductOf/Product1.jpg" alt="..." />
+                                    <p> 🟡ความละเอียด: 61 ล้านพิกเซล
+                                        🟡ตัวประมวลผล: BIONZ X
+                                        🟡ระบบโฟกัส: 567 จุด
+                                    </p>🟡ISO: 100-32000 (ขยายได้ถึง 50-102400)
+                                        🟡ความเร็วถ่ายภาพ: 10 ภาพต่อวินาที
+                                        🟡วิดีโอ: 4K 30p
+                                    </p>🟡จอแสดงผล: 3 นิ้ว, 1.44 ล้านจุด 🟡ประกัน 3 ปี</p>
+                                        
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>ราคา</strong>
+                                            2,999$
+                                        </li>
+                                        <li>
+                                            <strong>สินค้าคงเหลือ</strong>
+                                            69
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        
+                                        สั่งซื้อ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <br class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Canon EOS R5</h2>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/ProductOf/Product2.jpg" alt="..." />
+                                    <p>🟡ความละเอียด: 45 ล้านพิกเซล
+                                       🟡ตัวประมวลผล: DIGIC X
+                                       🟡ระบบโฟกัส: Dual Pixel CMOS AF II
+                                    </p>🟡ISO: 100-51200 (ขยายได้ถึง 50-102400)
+                                       🟡ความเร็วถ่ายภาพ: 12 ภาพต่อวินาที หรือ 20 ภาพต่อวินาที (electronic shutter)
+                                    </p>🟡วิดีโอ: 8K 30p, 4K 120p
+                                       🟡จอแสดงผล: 3.2 นิ้ว, 2.1 ล้านจุด 🟡ประกัน 4 ปี</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>ราคา</strong>
+                                            3,499$
+                                        </li>
+                                        <li>
+                                            <strong>สินค้าคงเหลือ</strong>
+                                            99
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">  
+                                        สั่งซื้อ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Nikon Z7 II</h2>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/ProductOf/Product3.png" alt="..." />
+                                    <p> 🟡ความละเอียด: 45.7 ล้านพิกเซล
+                                        🟡ตัวประมวลผล: EXPEED 6
+                                        🟡ระบบโฟกัส: 493 จุด
+                                    </p>🟡ISO: 64-25600 (ขยายได้ถึง 32-102400)
+                                        🟡ความเร็วถ่ายภาพ: 10 ภาพต่อวินาที
+                                        🟡วิดีโอ: 4K 60p
+                                    </p>🟡จอแสดงผล: 3.2 นิ้ว, 2.1 ล้านจุด 🟡ประกัน 3 ปี</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>ราคา</strong>
+                                            2,799$
+                                        </li>
+                                        <li>
+                                            <strong>สินค้าคงเหลือ</strong>
+                                            77
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        
+                                        สั่งซื้อ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Fujifilm X-T4</h2>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/ProductOf/Product4.png" alt="..." />
+                                    <p>🟡ความละเอียด: 26.1 ล้านพิกเซล
+                                       🟡ตัวประมวลผล: X-Processor 4
+                                       🟡ระบบโฟกัส: 425 จุด
+                                    </p>🟡ISO: 160-12800 (ขยายได้ถึง 80-51200)
+                                       🟡ความเร็วถ่ายภาพ: 15 ภาพต่อวินาที
+                                       🟡วิดีโอ: 4K 60p
+                                    </p>🟡จอแสดงผล: 3 นิ้ว, 1.62 ล้านจุด, หมุนเปิด-ปิดได้ 🟡ประกัน 2 ปี</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>ราคา</strong>
+                                            1,999$
+                                        </li>
+                                        <li>
+                                            <strong>สินค้าคงเหลือ</strong>
+                                            19
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        
+                                        สั่งซื้อ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Panasonic Lumix GH5</h2>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/ProductOf/Product5.png" alt="..." />
+                                    <p> 🟡ความละเอียด: 20.3 ล้านพิกเซล
+                                        🟡ตัวประมวลผล: Venus Engine 10
+                                        🟡ระบบโฟกัส: Depth from Defocus (DFD) AF
+                                    </p>🟡ISO: 200-25600 (ขยายได้ถึง 100-25600)
+                                        🟡ความเร็วถ่ายภาพ: 12 ภาพต่อวินาที
+                                        🟡วิดีโอ: 4K 60p
+                                    </p>🟡จอแสดงผล: 3.2 นิ้ว, 1.62 ล้านจุด, หมุนเปิด-ปิดได้ 🟡ประกัน 3 ปี</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>ราคา</strong>
+                                            1,999$
+                                        </li>
+                                        <li>
+                                            <strong>สินค้าคงเหลือ</strong>
+                                            66
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        
+                                        สั่งซื้อ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Olympus OM-D E-M1 Mark III</h2>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/ProductOf/Product6.png" alt="..." />
+                                    <p>🟡ความละเอียด: 20.4 ล้านพิกเซล
+                                       🟡ตัวประมวลผล: TruePic IX
+                                       🟡ระบบโฟกัส: 121 จุด
+                                    </p>🟡ISO: 200-25600 (ขยายได้ถึง 64-25600)
+                                       🟡ความเร็วถ่ายภาพ: 18 ภาพต่อวินาที  หรือ 60 ภาพต่อวินาที 
+                                       🟡วิดีโอ: 4K 30p
+                                    </p>🟡จอแสดงผล: 3 นิ้ว, 1.04 ล้านจุด, หมุนเปิด-ปิดได้ 🟡ประกัน 3 ปี</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>ราคา</strong>
+                                            1,499$
+                                        </li>
+                                        <li>
+                                            <strong>สินค้าคงเหลือ</strong>
+                                            49
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        
+                                        สั่งซื้อ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="PUBLIC_URL/js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
